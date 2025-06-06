@@ -1,0 +1,36 @@
+.o_control_panel {
+
+    .breadcrumb {
+        font-size: 1.2em;
+        
+        .breadcrumb-item {
+            .o_form_status_indicator {
+                .o_form_status_indicator_buttons {
+                    .btn{
+                        width: 35px;
+                        margin-left: 10px;
+                        padding: 0;
+                        
+                        &:hover {
+                            background-color: transparent;
+                            border-color: transparent;
+                        }
+                        
+                        .fa-cloud-upload,
+                        .fa-save,
+                        .fa-undo {
+                            font-size: 1.4em;
+                            color: lighten($o-brand-primary, 10%);
+                            &:hover, &:focus, &:active {
+                                font-size: 1.5em;
+                                color: $o-brand-primary;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+

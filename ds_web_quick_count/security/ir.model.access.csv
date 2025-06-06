@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_web_quick_count_web_quick_count,web_quick_count.web_quick_count,model_web_quick_count_web_quick_count,base.group_user,1,1,1,1

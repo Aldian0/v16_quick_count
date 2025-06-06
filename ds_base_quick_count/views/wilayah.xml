@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+    
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Profinsi ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <record id="ds_ref_propinsi_view_tree" model="ir.ui.view">
+            <field name="name">ds.ref.propinsi.view.tree</field>
+            <field name="model">ds.ref.propinsi</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <!-- Add your fields here -->
+                    <field name="name"/>
+                    <field name="kode"/>
+                    <field name="singkat"/>
+                    <!-- <field name="keterangan"/> -->
+                </tree>
+            </field>
+        </record>
+        <record id="ds_ref_propinsi_view_form" model="ir.ui.view">
+            <field name="name">ds.ref.propinsi.view.form</field>
+            <field name="model">ds.ref.propinsi</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <!-- Add your fields here -->
+                            <field name="name"/>
+                            <field name="kode"/>
+                            <field name="singkat"/>
+                            <field name="keterangan"/>
+                        </group>
+                        <notebook>
+                            <page name="kota_kabupaten" string="Data Kota">
+                                <field name="kota_ids">
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="kode"/>
+                                        <field name="singkat"/>
+                                    </tree>
+                            </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="ds_ref_propinsi_view_search" model="ir.ui.view">
+            <field name="name">ds.ref.propinsi.view.search</field>
+            <field name="model">ds.ref.propinsi</field>
+            <field name="arch" type="xml">
+                <search string="Search Description">
+                    <!-- Add your fields here -->
+                    <field name="name"/>
+                    <field name="kode"/>
+                </search>
+            </field>
+        </record>
+        <record id="ds_ref_propinsi_action" model="ir.actions.act_window">
+            <field name="name">Data Propinsi</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ds.ref.propinsi</field>
+            <field name="view_mode">tree,form</field>
+
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p><p>
+                    <!-- More details about what a user can do with this object will be OK --> 
+                
+                </p>
+            </field>
+        </record>
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Kota ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <record id="ds_ref_kota_view_tree" model="ir.ui.view">
+            <field name="name">ds.ref.kota.view.tree</field>
+            <field name="model">ds.ref.kota</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <!-- Add your fields here -->
+                    <field name="name"/>
+                    <field name="kode"/>
+                    <field name="singkat"/>
+                    <field name="keterangan"/>
+                    <field name="propinsi_id"/>
+                </tree>
+            </field>
+        </record>
+        <record id="ds_ref_kota_view_form" model="ir.ui.view">
+            <field name="name">ds.ref.kota.view.form</field>
+            <field name="model">ds.ref.kota</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <!-- Add your fields here -->
+                            <field name="name"/>
+                            <field name="kode"/>
+                            <field name="singkat"/>
+                            <field name="keterangan"/>
+                            <field name="propinsi_id"/>
+                        </group>
+                        <notebook>
+                            <page name="kecamatan" string="Data Kecamatan">
+                                <field name="kecamatan_ids">
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="kode"/>
+                                        <field name="singkat"/>
+                                    </tree>
+                            </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="ds_ref_kota_view_search" model="ir.ui.view">
+            <field name="name">ds.ref.kota.view.search</field>
+            <field name="model">ds.ref.kota</field>
+            <field name="arch" type="xml">
+                <search string="Search Description">
+                    <!-- Add your fields here -->
+                    <filter name="group_by_propinsi" string="grubkan berdasarkan propinsi" context="{'group_by': 'propinsi_id'}" />
+                    <field name="name"/>
+                    <field name="kode"/>
+                </search>
+            </field>
+        </record>
+        <record id="ds_ref_kota_action" model="ir.actions.act_window">
+            <field name="name">Data Kota/Kabupaten</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ds.ref.kota</field>
+            <field name="view_mode">tree,form</field>
+
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p><p>
+                    <!-- More details about what a user can do with this object will be OK --> 
+                
+                </p>
+            </field>
+        </record>
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Kecamatan ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <record id="ds_ref_kecamatan_view_tree" model="ir.ui.view">
+            <field name="name">ds.ref.kecamatan.view.tree</field>
+            <field name="model">ds.ref.kecamatan</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <!-- Add your fields here -->
+                    <field name="name"/>
+                    <field name="kode"/>
+                    <field name="singkat"/>
+                    <!-- <field name="keterangan"/> -->
+                    <field name="kota_id"/>
+                </tree>
+            </field>
+        </record>
+        <record id="ds_ref_kecamatan_view_form" model="ir.ui.view">
+            <field name="name">ds.ref.kecamatan.view.form</field>
+            <field name="model">ds.ref.kecamatan</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <!-- Add your fields here -->
+                            <field name="name"/>
+                            <field name="kode"/>
+                            <field name="singkat"/>
+                            <field name="keterangan"/>
+                            <field name="kota_id"/>
+                        </group>
+                        <notebook>
+                            <page name="desa" string="Data Desa">
+                                <field name="desa_ids">
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="kode"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="ds_ref_kecamatan_view_search" model="ir.ui.view">
+            <field name="name">ds.ref.kecamatan.view.search</field>
+            <field name="model">ds.ref.kecamatan</field>
+            <field name="arch" type="xml">
+                <search string="Search Description">
+                    <!-- Add your fields here -->
+                    <filter name="group_by_kota" string="grubkan berdasarkan kota/kabupaten" context="{'group_by': 'kota_id'}" />
+                    <field name="name"/>
+                    <field name="kode"/>
+                    
+                </search>
+            </field>
+        </record>
+        <record id="ds_ref_kecamatan_action" model="ir.actions.act_window">
+            <field name="name">Data Kecamatan</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ds.ref.kecamatan</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p><p>
+                    <!-- More details about what a user can do with this object will be OK --> 
+                
+                </p>
+            </field>
+        </record>
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Desa ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <record id="ds_ref_desa_view_tree" model="ir.ui.view">
+            <field name="name">ds.ref.desa.view.tree</field>
+            <field name="model">ds.ref.desa</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <!-- Add your fields here -->
+                    <field name="name"/>
+                    <field name="kode"/>
+                    <!-- <field name="keterangan"/> -->
+                    <field name="kecamatan_id"/>
+                </tree>
+            </field>
+        </record>
+        <record id="ds_ref_desa_view_form" model="ir.ui.view">
+            <field name="name">ds.ref.desa.view.form</field>
+            <field name="model">ds.ref.desa</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <!-- Add your fields here -->
+                            <field name="name"/>
+                            <field name="kode"/>
+                            <field name="keterangan"/>
+                            <field name="kecamatan_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="ds_ref_desa_view_search" model="ir.ui.view">
+            <field name="name">ds.ref.desa.view.search</field>
+            <field name="model">ds.ref.desa</field>
+            <field name="arch" type="xml">
+                <search string="Search Description">
+                    <!-- Add your fields here -->
+                    <filter name="group_by_kecamatan" string="grubkan berdasarkan kecamatan" context="{'group_by': 'kecamatan_id'}" />
+                    <field name="name"/>
+                    <field name="kode"/>
+                    
+                </search>
+            </field>
+        </record>
+        <record id="ds_ref_desa_action" model="ir.actions.act_window">
+            <field name="name">Data Desa</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ds.ref.desa</field>
+            <field name="view_mode">tree,form</field>
+
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p><p>
+                    <!-- More details about what a user can do with this object will be OK --> 
+                
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="ds_wilayah_menu_categ" name="Wilayah" parent="ds_pengaturan_menu_categ" sequence="50">
+            <menuitem id="ds_desa_menu_act" name="Desa" action="ds_ref_desa_action" sequence="40"/>
+            <menuitem id="ds_kecamatan_menu_act" name="Kecamatan" action="ds_ref_kecamatan_action" sequence="30"/>
+            <menuitem id="ds_kota_menu_act" name="Kota" action="ds_ref_kota_action" sequence="20"/>
+            <menuitem id="ds_propinsi_menu_act" name="Propinsi" action="ds_ref_propinsi_action" sequence="0"/>
+        </menuitem>
+    
+    </data>
+    
+
+</odoo>

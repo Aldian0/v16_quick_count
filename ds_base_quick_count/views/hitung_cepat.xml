@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+    
+        <!-- ds.hitung.cepat tree view -->
+        <record id="ds_hitung_cepat_view_tree" model="ir.ui.view">
+            <field name="name">ds.hitung.cepat.view.tree</field>
+            <field name="model">ds.hitung.cepat</field>
+            <field name="arch" type="xml">
+                <tree decoration-success="peringatan == 'nomal'" 
+                        decoration-danger="peringatan == 'tidak_nomal'"> 
+
+                    <!-- Add your fields here -->
+                    <field name="name"/>
+                    <field name="saksi_id"/>
+                    <field name="tps_id"/>
+                    <field name="koordinator_id"/>
+                    <field name="state"/>
+                    <field name="pemilihan_id"/>
+                    <field name="presentase_kehadiran" widget="progressbar" options="{'max_value':'100'}"/>
+                    <field name="peringatan" widget="badge" 
+                        decoration-success="peringatan == 'nomal'" 
+                        decoration-danger="peringatan == 'tidak_nomal'"/>
+                    
+                </tree>
+            </field>
+        </record>
+
+
+
+        <!-- ds.hitung.cepat form view -->
+        <record id="ds_hitung_cepat_view_form" model="ir.ui.view">
+            <field name="name">ds.hitung.cepat.view.form</field>
+            <field name="model">ds.hitung.cepat</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <header>
+                        <button name="action_confirm" states="proses" type="object" string="Konfirmasi" class="oe_highlight"/>
+                         <button name="action_progress" states="draft" type="object" string="Proses" class="oe_highlight"/>
+                        <!-- <button name="action_cancel" string="Dibatalkan" states="done" type="object"/> -->
+                        <button name="action_draft" string="Kembali ke Draft" states="done" type="object" groups="ds_base_quick_count.group_quick_count_opr"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm,process,done"/>
+                    </header>
+                    <sheet>
+                        <!-- <field name="name"/> -->
+                        <div class="oe_title">
+                            <h1>
+                                <field id="individual" widget="text" class="text-break" name="name" default_focus="1" placeholder="Hitung cepat Tps 111"/>
+                            </h1>
+                        </div>
+                        <group name="kader" string="Data Saksi">
+                            <group>
+                                <field name="saksi_id"/>
+                                <field name="koordinator_id"/>
+                            </group>
+                            <group>
+                                <!-- <field name="calon_jabatan_id"/> -->
+                                <field name="pemilihan_id"/>
+                                
+                            </group>
+
+                        </group>
+                        <group name="tps" string="Data Tps">
+                            <group>
+                                <field name="tps_id"/>
+                                <field name="propinsi_id"/>
+                                <field name="kota_id" domain="[('propinsi_id','=',propinsi_id)]"/>
+                            </group>
+                            <group>
+                                <field name="kecamatan_id" domain="[('kota_id','=',kota_id)]"/>
+                                <field name="desa_id" domain="[('kecamatan_id','=',kecamatan_id)]"/>
+                                <field name="alamat"/>
+                            </group>
+                            
+                        </group>
+                        <group name="hitungan" string="Hitungan" >
+                            <group name="jml_pemilih" string="Pemilih">
+                                <field name="jml_pemilih_hadir" attrs="{'readonly':[('state','=','done')]}"/>
+                                <field name="jml_dpt" attrs="{'readonly':[('state','=','done')]}"/>
+                                <!-- <field name="jml_pemilih_sah" attrs="{'readonly':[('state','=','done')]}"/> -->
+                            </group>
+                            <group name="jumlah_suara" string="Jumlah Suara">
+                                <field name="jml_suara_sah" attrs="{'readonly':[('state','=','done')]}"/>
+                                <field name="jml_suara_tidak_sah" attrs="{'readonly':[('state','=','done')]}"/>
+                                <!-- <field name="jml_suara_sah" attrs="{'readonly':[('state','=','done')]}"/> -->
+                            </group>
+                            
+                        </group>
+                        <group name="hasil" string="Hasil">
+                            <group>
+                                <field name="golput"/>
+                                
+                                <field name="peringatan"/>
+                            </group>
+                            <group>
+                                
+                                <field name="presentase_kehadiran" widget="progressbar" options="{'max_value':'100'}"/>
+                            </group>
+
+                            
+                        </group>
+                        <group name="keterangan" string="Keterangan">
+                            <field name="keterangan"/>
+                            
+                        </group>
+
+                        <notebook>
+                            <page name="hitung_cepat" string="Hitung">
+                                <!-- <field name="line_hitung_cepat_ids"/> -->
+                                <field name="line_hitung_cepat_ids" attrs="{'readonly':[('state','=','done')]}" >
+
+                                    <tree create="0" editable="1">
+                                        <field name="gambar_paslon" widget="image" options="{'size': [100, 100]}"/>
+                                        
+                                        
+                                        <field name="paslon_id" readonly="1"/>
+                                        <field name="partai_id"/>
+                                        <field name="calon_jabatan_id"/>
+                                        <field name="jumlah_suara" sum="Total"/>
+
+                                    </tree>
+                                
+                                
+                                </field>
+
+                            </page>
+                            <page name="upload" string="Chasil Plano">
+                                <field name="data_chasil_plano_ids" attrs="{'readonly':[('state','=','done')]}">
+                                    <tree editable="1">
+                                        <field name="name"/>
+                                        <field name="upload_chasil_plano" widget="image"  options="{'size': [200, 200]}"/>
+                                        <field name="keterangan"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- ds.chasil.plano form view -->
+        <record id="ds_chasil_plano_view_form" model="ir.ui.view">
+            <field name="name">ds.chasil.plano.view.form</field>
+            <field name="model">ds.chasil.plano</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <!-- Add your fields here -->
+                            <field name="name"/>
+                            <field name="upload_chasil_plano" widget="image"/>
+                            <field name="keterangan"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- ds.line.hitung.cepat tree view -->
+        <record id="ds_line_hitung_cepat_view_tree" model="ir.ui.view">
+            <field name="name">ds.line.hitung.cepat.view.tree</field>
+            <field name="model">ds.line.hitung.cepat</field>
+            <field name="arch" type="xml">
+                <tree create="0" edit="0">
+                    <!-- Add your fields here -->
+                    <!-- <field name="name"/> -->
+                    <!-- <field name="gambar_paslon" widget="image" class="oe_avatar"/> -->
+                    <field name="paslon_id"/>
+                    <field name="calon_jabatan_id"/>
+                    <field name="jumlah_suara"/>
+                </tree>
+            </field>
+        </record>
+        <record id="ds_line_hitung_cepat_view_form" model="ir.ui.view">
+            <field name="name">ds.line.hitung.cepat.view.form</field>
+            <field name="model">ds.line.hitung.cepat</field>
+            <field name="arch" type="xml">
+                <form create="0" edit="0">
+                    <sheet>
+                        <group>
+                            <!-- <field name="name"/> -->
+                            <field name="paslon_id" readonly="1"/>
+                            <field name="calon_jabatan_id"/>
+                            <field name="tps_id"/>
+                            <field name="jumlah_suara" readonly="1"/>
+                            <field name="saksi_id"/>
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- ds.line.hitung.cepat action window -->
+        <record id="ds_line_hitung_cepat_action" model="ir.actions.act_window">
+            <field name="name">Line Hitung Cepat</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ds.line.hitung.cepat</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p><p>
+                    <!-- More details about what a user can do with this object will be OK --> 
+                
+                </p>
+            </field>
+        </record>
+
+        <!-- ds.hitung.cepat action window -->
+        <record id="ds_hitung_cepat_action" model="ir.actions.act_window">
+            <field name="name">Hitung Cepat</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ds.hitung.cepat</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p><p>
+                    <!-- More details about what a user can do with this object will be OK --> 
+                
+                </p>
+            </field>
+        </record>
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="ds_hitung_cepat_menu_act" name="Hitung Cepat" parent="ds_data_hitung_cepat_menu_categ" action="ds_hitung_cepat_action" sequence="30"/>
+        <!-- <menuitem id="ds_line_hitung_cepat_menu_act" name="Line Hitung Cepat" parent="ds_data_hitung_cepat_menu_categ" action="ds_line_hitung_cepat_action" sequence="100"/> -->
+    
+    </data>
+    
+
+</odoo>

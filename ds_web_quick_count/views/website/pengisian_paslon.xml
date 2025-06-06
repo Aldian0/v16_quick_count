@@ -1,0 +1,480 @@
+<odoo>
+    <template id="web_pengisian_page_paslon" name="Landing Page">
+        <t t-call="website.layout">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"/>
+        <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet"/>      
+        <link rel="stylesheet" href="/ds_web_quick_count/static/src/landing/css/owl.carousel.min.css"/>
+        <link rel="stylesheet" href="/ds_web_quick_count/static/src/landing/css/owl.theme.default.min.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.5.6/css/ionicons.min.css"/>
+        <link rel="stylesheet" href="/ds_web_quick_count/static/src/landing/css/style.css"/>
+
+            <style>
+                body {
+            background-color: #f8f9fa;
+            }
+            .form-container {
+                /* max-width: 400px; */
+                width: auto;
+                margin: 20px auto;
+                padding: 20px;
+                margin-left: 4%;
+                margin-right: 4%;
+                background-color: #fff;
+                border-radius: 8px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            }
+            .head {
+                width: auto;
+                /* margin: 2% auto; */
+                margin: 20px auto ;
+                margin-left: 4%;
+                margin-right: 4%;
+                padding: 20px;
+                background-color: #fff;
+                border-radius: 8px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            }
+            .btn-custom {
+                width: 100%;
+                margin-top: 20px;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+            .mb-3 {
+                max-width: 400px;
+                margin: 0 auto;
+                
+            }
+            .candidate {
+              text-align: center;
+            }
+            .candidate img {
+              /* width: rem; */
+              height: 200px;
+              /* border-radius: 50%; */
+            }
+            .form-group {
+              margin-bottom: 15px;
+            }
+            .file-box {
+              border: 2px dashed #ccc;
+              padding: 20px;
+              text-align: center;
+            }
+            .file-box img {
+              width: 80px;
+            }
+            .file-box p {
+              margin: 10px 0;
+            }
+            .form-control {
+                border-radius: 2rem;
+            }
+            .nama_paslon{
+                border: 2px solid #ccc;
+                width: 70%; 
+                margin: auto;
+                /* padding: 10px; */
+                border-radius: 1rem;
+                
+            }
+            </style>
+         
+
+            <!-- <div class="head container-fluid" >
+                <img t-attf-src="data:image/jpg;base64,{{ company_data.logo }}" alt="logo Pilkada" class="img-fluid" style="display: block; margin-left: auto; margin-right: auto;"/>
+            </div> -->
+
+
+            <!-- <div class="head container-fluid" >
+                <div class="head container-fluid" >
+                    <img t-attf-src="data:image/jpg;base64,{{ company_data.logo }}" alt="logo Pilkada" class="img-fluid" 
+                    style="display: block; 
+                    margin-left: auto; margin-right: auto;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                    border-radius: 8px;
+                    border: 2px solid #ccc;
+                    padding: 10px;
+                    max-width: 50%;
+                    max-height: 50%;
+                    object-fit: cover;
+                    object-position: center;
+                    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                    background-color: #fff;
+
+
+                    "/>
+                </div>
+            </div> -->
+            <section>
+              <div>
+                <header class="jumbotron text-center" 
+                  t-attf-style="background-image: url('data:image/jpg;base64,{{ company_data.website_profile_image }}');"
+                  style="background-image: url('/ds_web_quick_count/static/src/landing/images/work-1.jpg'); background-size: cover; background-blend-mode: multiply; background-color: rgba(7, 5, 100, 0.555); color: white;">
+                    <h1 style="color: black; font-size: calc(1.5rem + 1vw); 
+                          font-family: 'Poppins', sans-serif; outline: blue;
+                          font-weight: 600; font-size: calc(2.06rem + 1vw); 
+                          line-height: 120%;
+                    " class="display-4"><t t-esc="company_data.name"/></h1>
+                    <h2 style="color: black; font-size: calc(1rem + 1vw);"><t t-esc="company_data.title"/></h2>
+                    <p style="color: black;"><t t-esc="company_data.company_deskription"/></p>
+                  </header>
+                </div>
+              <!-- <div class="countdown d-flex justify-content-center container-fluid">
+                <div class="mx-2">12<br></br><span class="hilangg">Days</span></div>
+                <div class="mx-2">12<br></br><span class="hilangg">Hours</span></div>
+                <div class="mx-2">12<br></br><span class="hilangg">Minutes</span></div>
+                <div class="mx-2">12<br></br><span class="hilangg">Seconds</span></div>
+              </div> -->
+            </section>
+
+            <div class="form-container">
+              <h2 class="text-center mb-5"><b><t t-esc="hitung_cepat.name"/>/<t t-esc="hitung_cepat.pemilihan_id.name"/></b></h2>
+              <section class="ftco-section">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-12 text-center">
+                      <h2 class="heading-section mb-5 pb-md-4">Calon Bupati</h2>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="featured-carousel owl-carousel">
+                        <div class="item">
+                          <div class="work">
+                            <div class="text-center">
+                              <h1>01</h1>
+                            </div>
+                            <div class="img d-flex align-items-center justify-content-center rounded" style="background-image: url(/ds_web_quick_count/static/src/landing/images/paslonn.png);">
+                              
+                            </div>
+                            <div class="text pt-3 w-100 text-center">
+                              <h3><b><span class="badge rounded-pill" style="background-color: #E74C3C; color: white;">Calon - W Calon</span></b></h3>
+                              <h5> <svg width="1em" height="1em" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M144 0a80 80 0 1 1 0 160A80 80 0 1 1 144 0zM512 0a80 80 0 1 1 0 160A80 80 0 1 1 512 0zM0 298.7C0 239.8 47.8 192 106.7 192l42.7 0c15.9 0 31 3.5 44.6 9.7c-1.3 7.2-1.9 14.7-1.9 22.3c0 38.2 16.8 72.5 43.3 96c-.2 0-.4 0-.7 0L21.3 320C9.6 320 0 310.4 0 298.7zM405.3 320c-.2 0-.4 0-.7 0c26.6-23.5 43.3-57.8 43.3-96c0-7.6-.7-15-1.9-22.3c13.6-6.3 28.7-9.7 44.6-9.7l42.7 0C592.2 192 640 239.8 640 298.7c0 11.8-9.6 21.3-21.3 21.3l-213.3 0zM224 224a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zM128 485.3C128 411.7 187.7 352 261.3 352l117.3 0C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7l-330.7 0c-14.7 0-26.7-11.9-26.7-26.7z"/></svg> 540</h5>
+                              <button type="button" class="btn btn-outline-danger" style="width: 100%;">Isi</button>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="item">
+                          <div class="work">
+                            <div class="text-center">
+                              <h1>02</h1>
+                            </div>
+                            <div class="img d-flex align-items-center justify-content-center rounded" style="background-image: url(/ds_web_quick_count/static/src/landing/images/paslonn.png);">
+                              
+                            </div>
+                            <div class="text pt-3 w-100 text-center">
+                              <h3><b><span class="badge rounded-pill" style="background-color: #E74C3C; color: white;">Calon - W Calon</span></b></h3>
+                              <h5> <svg width="1em" height="1em" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M144 0a80 80 0 1 1 0 160A80 80 0 1 1 144 0zM512 0a80 80 0 1 1 0 160A80 80 0 1 1 512 0zM0 298.7C0 239.8 47.8 192 106.7 192l42.7 0c15.9 0 31 3.5 44.6 9.7c-1.3 7.2-1.9 14.7-1.9 22.3c0 38.2 16.8 72.5 43.3 96c-.2 0-.4 0-.7 0L21.3 320C9.6 320 0 310.4 0 298.7zM405.3 320c-.2 0-.4 0-.7 0c26.6-23.5 43.3-57.8 43.3-96c0-7.6-.7-15-1.9-22.3c13.6-6.3 28.7-9.7 44.6-9.7l42.7 0C592.2 192 640 239.8 640 298.7c0 11.8-9.6 21.3-21.3 21.3l-213.3 0zM224 224a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zM128 485.3C128 411.7 187.7 352 261.3 352l117.3 0C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7l-330.7 0c-14.7 0-26.7-11.9-26.7-26.7z"/></svg> 540</h5>
+                              <button type="button" class="btn btn-outline-danger" style="width: 100%;">Isi</button>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="item">
+                          <div class="work">
+                            <div class="text-center">
+                              <h1>03</h1>
+                            </div>
+                            <div class="img d-flex align-items-center justify-content-center rounded" style="background-image: url(/ds_web_quick_count/static/src/landing/images/paslonn.png);">
+                              
+                            </div>
+                            <div class="text pt-3 w-100 text-center">
+                              <h3><b><span class="badge rounded-pill" style="background-color: #E74C3C; color: white;">Calon - W Calon</span></b></h3>
+                              <h5> <svg width="1em" height="1em" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M144 0a80 80 0 1 1 0 160A80 80 0 1 1 144 0zM512 0a80 80 0 1 1 0 160A80 80 0 1 1 512 0zM0 298.7C0 239.8 47.8 192 106.7 192l42.7 0c15.9 0 31 3.5 44.6 9.7c-1.3 7.2-1.9 14.7-1.9 22.3c0 38.2 16.8 72.5 43.3 96c-.2 0-.4 0-.7 0L21.3 320C9.6 320 0 310.4 0 298.7zM405.3 320c-.2 0-.4 0-.7 0c26.6-23.5 43.3-57.8 43.3-96c0-7.6-.7-15-1.9-22.3c13.6-6.3 28.7-9.7 44.6-9.7l42.7 0C592.2 192 640 239.8 640 298.7c0 11.8-9.6 21.3-21.3 21.3l-213.3 0zM224 224a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zM128 485.3C128 411.7 187.7 352 261.3 352l117.3 0C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7l-330.7 0c-14.7 0-26.7-11.9-26.7-26.7z"/></svg> 540</h5>
+                              <button type="button" class="btn btn-outline-danger" style="width: 100%;">Isi</button>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="item">
+                          <div class="work">
+                            <div class="text-center">
+                              <h1>04</h1>
+                            </div>
+                            <div class="img d-flex align-items-center justify-content-center rounded" style="background-image: url(/ds_web_quick_count/static/src/landing/images/paslonn.png);">
+                              
+                            </div>
+                            <div class="text pt-3 w-100 text-center">
+                              <h3><b><span class="badge rounded-pill" style="background-color: #E74C3C; color: white;">Calon - W Calon</span></b></h3>
+                              <h5> <svg width="1em" height="1em" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M144 0a80 80 0 1 1 0 160A80 80 0 1 1 144 0zM512 0a80 80 0 1 1 0 160A80 80 0 1 1 512 0zM0 298.7C0 239.8 47.8 192 106.7 192l42.7 0c15.9 0 31 3.5 44.6 9.7c-1.3 7.2-1.9 14.7-1.9 22.3c0 38.2 16.8 72.5 43.3 96c-.2 0-.4 0-.7 0L21.3 320C9.6 320 0 310.4 0 298.7zM405.3 320c-.2 0-.4 0-.7 0c26.6-23.5 43.3-57.8 43.3-96c0-7.6-.7-15-1.9-22.3c13.6-6.3 28.7-9.7 44.6-9.7l42.7 0C592.2 192 640 239.8 640 298.7c0 11.8-9.6 21.3-21.3 21.3l-213.3 0zM224 224a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zM128 485.3C128 411.7 187.7 352 261.3 352l117.3 0C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7l-330.7 0c-14.7 0-26.7-11.9-26.7-26.7z"/></svg> 540</h5>
+                              <button type="button" class="btn btn-outline-danger" style="width: 100%;">Isi</button>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="item">
+                          <div class="work">
+                            <div class="text-center">
+                              <h1>05</h1>
+                            </div>
+                            <div class="img d-flex align-items-center justify-content-center rounded" style="background-image: url(/ds_web_quick_count/static/src/landing/images/paslonn.png);">
+                              
+                            </div>
+                            <div class="text pt-3 w-100 text-center">
+                              <h3><b><span class="badge rounded-pill" style="background-color: #E74C3C; color: white;">Calon - W Calon</span></b></h3>
+                              <h5> <svg width="1em" height="1em" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M144 0a80 80 0 1 1 0 160A80 80 0 1 1 144 0zM512 0a80 80 0 1 1 0 160A80 80 0 1 1 512 0zM0 298.7C0 239.8 47.8 192 106.7 192l42.7 0c15.9 0 31 3.5 44.6 9.7c-1.3 7.2-1.9 14.7-1.9 22.3c0 38.2 16.8 72.5 43.3 96c-.2 0-.4 0-.7 0L21.3 320C9.6 320 0 310.4 0 298.7zM405.3 320c-.2 0-.4 0-.7 0c26.6-23.5 43.3-57.8 43.3-96c0-7.6-.7-15-1.9-22.3c13.6-6.3 28.7-9.7 44.6-9.7l42.7 0C592.2 192 640 239.8 640 298.7c0 11.8-9.6 21.3-21.3 21.3l-213.3 0zM224 224a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zM128 485.3C128 411.7 187.7 352 261.3 352l117.3 0C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7l-330.7 0c-14.7 0-26.7-11.9-26.7-26.7z"/></svg> 540</h5>
+                              <button type="button" class="btn btn-outline-danger" style="width: 100%;">Isi</button>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="item">
+                          <div class="work">
+                            <div class="text-center">
+                              <h1>06</h1>
+                            </div>
+                            <div class="img d-flex align-items-center justify-content-center rounded" style="background-image: url(/ds_web_quick_count/static/src/landing/images/paslonn.png);">
+                              
+                            </div>
+                            <div class="text pt-3 w-100 text-center">
+                              <h3><b><span class="badge rounded-pill" style="background-color: #E74C3C; color: white;">Calon - W Calon</span></b></h3>
+                              <h5> <svg width="1em" height="1em" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M144 0a80 80 0 1 1 0 160A80 80 0 1 1 144 0zM512 0a80 80 0 1 1 0 160A80 80 0 1 1 512 0zM0 298.7C0 239.8 47.8 192 106.7 192l42.7 0c15.9 0 31 3.5 44.6 9.7c-1.3 7.2-1.9 14.7-1.9 22.3c0 38.2 16.8 72.5 43.3 96c-.2 0-.4 0-.7 0L21.3 320C9.6 320 0 310.4 0 298.7zM405.3 320c-.2 0-.4 0-.7 0c26.6-23.5 43.3-57.8 43.3-96c0-7.6-.7-15-1.9-22.3c13.6-6.3 28.7-9.7 44.6-9.7l42.7 0C592.2 192 640 239.8 640 298.7c0 11.8-9.6 21.3-21.3 21.3l-213.3 0zM224 224a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zM128 485.3C128 411.7 187.7 352 261.3 352l117.3 0C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7l-330.7 0c-14.7 0-26.7-11.9-26.7-26.7z"/></svg> 540</h5>
+                              <button type="button" class="btn btn-outline-danger" style="width: 100%;">Isi</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+                  <div class="container my-5">
+                    
+                      <!-- Candidates Section -->
+                      <!-- <div class="row text-center mb-4">
+                        <t t-foreach="hitung_cepat.line_hitung_cepat_ids" t-as="line_hitung_cepat_id">
+                          <div class="col-md-4 candidate">
+                            <div>Nomor Paslon</div>
+                            <img t-attf-src="data:image/jpg;base64,{{ line_hitung_cepat_id.gambar_paslon }}" alt="Candidate 1"/>
+                            <div><t t-esc="line_hitung_cepat_id.name"/></div>
+                            <input ty<script src="/ds_web_quick_count/static/src/landing/js/jquery.min.js"></script>
+    <script src="/ds_web_quick_count/static/src/landing/js/popper.js"></script>
+    <script src="/ds_web_quick_count/static/src/landing/js/bootstrap.min.js"></script>
+    <script src="/ds_web_quick_count/static/src/landing/js/owl.carousel.min.js"></script>
+    <script src="/ds_web_quick_count/static/src/landing/js/main.js"></script>pe="number" class="form-control" placeholder="Prolehan"/>
+                          </div>
+                        </t>
+                      </div> -->
+                      <div class="container">
+                        
+                        
+                          <div class="row">
+                            <div class="col-12">
+                            <t t-foreach="hitung_cepat.line_hitung_cepat_ids" t-as="line_hitung_cepat_id">
+                                  <div class="card">
+                                    <div class="card-body d-flex justify-content-between align-items-center">
+                                      <div class="d-flex align-items-center">
+                                        <div class="me-4">
+                                          <img 
+                                            style="margin-right: 10px;
+                                                    border-radius: 8px;
+                                                    border: 1px solid #ccc;
+                                                    padding: 10px;
+
+                                                    
+                                                    object-fit: cover;
+                                                    object-position: center;
+                                                    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                                                    background-color: white;
+                                                    "
+                                                    width="120" height="100"
+                                          t-attf-src="data:image/jpg;base64,{{ line_hitung_cepat_id.gambar_paslon }}"/>
+                                        </div>
+                                        <div class="me-4">
+                                          <b>NO :</b>
+                                          <br/>
+                                          <t t-esc="line_hitung_cepat_id.name"/>
+                                        </div>
+                                        <div class="me-4">
+                                          <b>Nama Paslon :</b>
+                                          <br/>
+                                          <t t-esc="line_hitung_cepat_id.nama_calon"/>
+                                        </div>
+                                        <div class="me-4">
+                                          <b>Jumlah Suara :</b>
+                                          <br/>
+                                          <t t-esc="line_hitung_cepat_id.jumlah_suara"/>
+                                        </div>
+                                      </div>
+                                      <div>
+                                        <!-- Button to trigger modal -->
+                                        <button type="button" class="btn btn-primary" t-att-data-bs-target="'#editmode' + str(line_hitung_cepat_id.id)" data-bs-toggle="modal">
+                                          Isi Peroleh Suara
+                                        </button>
+
+                                        <!-- Modal -->
+                                        <div class="modal fade" t-att-id="'editmode' + str(line_hitung_cepat_id.id)" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                          <form t-att-action="'/form_suara_input/' + str(hitung_cepat.id) + '/' + str(line_hitung_cepat_id.id)" method="post" enctype="multipart/form-data">
+                                            <div class="modal-dialog">
+                                              <div class="modal-content">
+                                                <div class="modal-header">
+                                                  <h5 class="modal-title" id="exampleModalLabel">Masukan Suara Record</h5>
+                                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                  <div class="form-group row">
+                                                    <label for="suara" class="col-sm-2 col-form-label">Suara</label>
+                                                    <div class="col-sm-10">
+                                                      <input type="number" class="form-control" name="suara" id="suara" placeholder="Masukan suara" required="required"/>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                  <button type="submit" class="btn btn-primary">Simpan</button>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </form>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                            </t>
+                            </div>
+                          </div>
+                      </div>
+
+
+                      <br/>
+                      <br/>
+                      <br/>
+
+                    <form t-att-action="'/form_konfirmasi/' + str(hitung_cepat.id)" method="post" enctype="multipart/form-data">
+                      <!-- Voting Statistics -->
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-6 col-form-label">Jumlah Pemilih Hadir:</label>
+                            <div class="col-sm-6">
+                              <input type="number" t-att-value="hitung_cepat.jml_pemilih_hadir" id="jml_pemilih_hadir" name="jml_pemilih_hadir" class="form-control" placeholder="0"/>
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <label class="col-sm-6 col-form-label">Jumlah DPT:</label>
+                            <div class="col-sm-6">
+                              <input type="number" t-att-value="hitung_cepat.jml_dpt" id="jml_dpt" name="jml_dpt" class="form-control" placeholder="0"/>
+                            </div>
+                          </div>
+                          
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-6 col-form-label">Jumlah Suara Sah:</label>
+                            <div class="col-sm-6">
+                              <input type="number" t-att-value="hitung_cepat.jml_suara_sah" id="jml_suara_sah" name="jml_suara_sah" class="form-control" placeholder="0"/>
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <label class="col-sm-6 col-form-label">Jumlah Suara Tidak Sah:</label>
+                            <div class="col-sm-6">
+                              <input type="number" t-att-value="hitung_cepat.jml_suara_tidak_sah" id="jml_suara_tidak_sah" name="jml_suara_tidak_sah" class="form-control" placeholder="0"/>
+                            </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                      <div>
+                        <button type="submit" class="btn btn-primary">Konfirmasi</button>
+                      </div>
+                    </form>
+
+                      <br/>
+                      <!-- File Upload Section -->
+                      <div class="row mt-5">
+                        <div class="col-12">
+                          <h5>Upload CHasil Plano</h5>
+                          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#from_create_plano">Upload</button>
+                            <div class="container">
+
+
+                              <t t-foreach="hitung_cepat.data_chasil_plano_ids" t-as="data_chasil_plano_id">
+                                <div class="row mt-3">
+                                  <div class="col-12">
+                                    <div class="card">
+                                      <div class="card-body d-flex justify-content-between align-items-center">
+                                        <div class="d-flex align-items-center">
+                                          <div class="me-3">
+                                            <div>
+                                              <div>
+                                                <img t-attf-src="data:image/jpg;base64,{{ data_chasil_plano_id.upload_chasil_plano }}" width="120" height="100"/>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div>
+                                            <h5 class="card-title"><t t-esc="data_chasil_plano_id.name"/></h5>
+                                          </div>
+                                          <div>
+                                            <h5 class="card-title"><t t-esc="data_chasil_plano_id.keterangan"/></h5>
+                                          </div>
+                                        </div>
+                                        <div>
+                                          
+                                          
+                                          <a type="button" t-att-href="'/delete_plano/'+ str(hitung_cepat.id) + '/'+ str(data_chasil_plano_id.id)" class="btn btn-danger">Delete</a>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                
+                              </t>
+                            </div> 
+                          </div> 
+                        </div> 
+                      </div> 
+                    <!-- </div> -->
+
+                    <!-- Section Start-->
+                      <!-- Modal CREATE Plano -->
+                        <div class="modal fade" id="from_create_plano" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <form t-att-action="'/form_plano_save/' + str(hitung_cepat.id)" method="post" enctype="multipart/form-data">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h1 class="modal-title fs-5" id="exampleModalLabel">Buat Record</h1>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  <div class="form-group row">
+                                    <label for="nama" class="col-sm-2 col-form-label">Nama</label>
+                                    <div class="col-sm-10">
+                                      <input type="text" class="form-control" name="nama" id="nama" placeholder="nama"/>
+                                    </div>
+                                  </div>
+                                  <div class="form-group row">
+                                    <label for="gambar" class="col-sm-2 col-form-label">Gambar</label>
+                                    <div class="col-sm-10">
+                                      <input type="file" class="form-control" name="gambar" id="gambar" accept="image/*"/>
+                                    </div>
+                                  </div>
+                                  <div class="form-group row">
+                                    <label for="keterangan" class="col-sm-2 col-form-label">Keterangan</label>
+                                    <div class="col-sm-10">
+                                      <input class="form-control" id="keterangan" name="keterangan" placeholder="keterangan" rows="3"></input>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                  <button type="submit" class="btn btn-primary">Simpan</button>
+                                </div>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+
+                        
+                      <!-- Section End-->
+
+                  
+                </div>
+              <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+              <script src="/ds_web_quick_count/static/src/landing/js/jquery.min.js"></script>
+            <script src="/ds_web_quick_count/static/src/landing/js/popper.js"></script>
+            <script src="/ds_web_quick_count/static/src/landing/js/bootstrap.min.js"></script>
+            <script src="/ds_web_quick_count/static/src/landing/js/owl.carousel.min.js"></script>
+            <script src="/ds_web_quick_count/static/src/landing/js/main.js"></script>
+            
+            
+            </t>
+
+            
+    </template>
+</odoo>

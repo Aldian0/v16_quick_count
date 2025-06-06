@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+    
+        <menuitem id="ds_base_quick_count_menu_root" name="Hitung Cepat" sequence="10" web_icon="ds_base_quick_count,static/description/icon.png"/>
+        <menuitem id="ds_data_hitung_cepat_menu_categ" name="Hitung Cepat" parent="ds_base_quick_count_menu_root" sequence="0"/>
+        <menuitem id="ds_Kader_menu_categ" name="Petugas" parent="ds_base_quick_count_menu_root" sequence="10"/>
+        <menuitem id="ds_tps_menu_categ" name="Tps" parent="ds_base_quick_count_menu_root" sequence="10"/>
+        <menuitem id="ds_pemilihan_menu_categ" name="Pemilihan" parent="ds_base_quick_count_menu_root" sequence="20"/>
+        <menuitem id="ds_pengaturan_menu_categ" name="Pengaturan" parent="ds_base_quick_count_menu_root" sequence="100" groups="ds_base_quick_count.group_quick_count_admin"/> 
+        
+        <menuitem id="ds_data_calon_menu_categ" name="Data Calon" parent="ds_pengaturan_menu_categ" sequence="30"/>
+
+        <menuitem id="res_company_menu_act" name="Perusahaan" parent="ds_pengaturan_menu_categ" action="base.action_res_company_form" sequence="100"/>
+        <!-- <menuitem id="ds_hitung_cepat_menu_root" name="Hitung Cepat" sequence="11" web_icon="ds_base_quick_count,static/description/count.png"/> -->
+    </data>
+    
+
+</odoo>

@@ -1,0 +1,23 @@
+$primary: $o-brand-primary !default;
+
+/* change list view background to theme color */
+$table-striped-bg-factor:     .03 !default;
+$table-striped-bg:            rgba($o-community-color, $table-striped-bg-factor) !default;
+
+$table-active-bg-factor:      .1 !default;
+$table-active-bg:             rgba($o-community-color, $table-active-bg-factor) !default;
+
+$table-hover-bg-factor:       .1 !default;
+$table-hover-bg:              rgba($o-community-color, $table-hover-bg-factor) !default;
+
+// breadcrumb divider change to Rightwards Dashed Arrow, Unicode Character “⇢” (U+21E2)
+$breadcrumb-divider:                quote("⇢") !default; //https://www.compart.com/en/unicode/U+21E2
+
+
+$form-check-input-border-radius: 1px !default;
+$btn-border-radius: 1px !default;
+$btn-border-radius-sm: 1px !default;
+$btn-border-radius-lg: 1px !default;
+
+// list header not too high, CE default is .75rem
+$table-cell-padding-y: .5rem !default;

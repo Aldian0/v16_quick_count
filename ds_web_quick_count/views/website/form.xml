@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="web_form_chasil" name="Form Upload Chasil">
+        <t t-call="website.layout">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"/>
+                <div class="container">
+                    <h1><t t-if="person">Edit</t><t t-else="">Create</t> Person</h1>
+                    <form t-att-action="person and ('/crud/person/update/' + str(person.id)) or '/crud/person/save'" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" class="form-control" t-att-value="person and person.name or ''" required="required"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" class="form-control" t-att-value="person and person.email or ''"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="age">Age</label>
+                            <input type="number" id="age" name="age" class="form-control" t-att-value="person and person.age or ''"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="image">Image</label>
+                            <input type="file" id="image" name="image" class="form-control"/>
+                            <t t-if="person and person.image">
+                                <img t-attf-src="data:image/jpg;base64,{{ person.image }}" class="img-thumbnail mt-2" style="width: 100px; height: auto;"/>
+                            </t>
+                        </div>
+                        <button type="submit" class="btn btn-primary"><t t-if="person">Update</t><t t-else="">Save</t></button>
+                    </form>
+                </div>
+            </t>
+    </template>
+
+    <template id="web_form_paslon" name="Form Upload Chasil">
+        <t t-call="website.layout">
+                <div class="container">
+                    <h1><t t-if="person">Edit</t><t t-else="">Create</t> Person</h1>
+                    <form t-att-action="person and ('/crud/person/update/' + str(person.id)) or '/crud/person/save'" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" class="form-control" t-att-value="person and person.name or ''" required="required"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" class="form-control" t-att-value="person and person.email or ''"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="age">Age</label>
+                            <input type="number" id="age" name="age" class="form-control" t-att-value="person and person.age or ''"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="image">Image</label>
+                            <input type="file" id="image" name="image" class="form-control"/>
+                            <t t-if="person and person.image">
+                                <img t-attf-src="data:image/jpg;base64,{{ person.image }}" class="img-thumbnail mt-2" style="width: 100px; height: auto;"/>
+                            </t>
+                        </div>
+                        <button type="submit" class="btn btn-primary"><t t-if="person">Update</t><t t-else="">Save</t></button>
+                    </form>
+                </div>
+            </t>
+    </template>
+</odoo>
+
+
+            <t t-foreach="pemilihan_datas" t-as="pemilihan_data">
+                <div t-attf-id="calbup#{pemilihan_data.id}" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <h2 class="text-center bakal"><b><t t-esc="pemilihan_data.name"/></b></h2>
+
+                        <t t-set="index" t-value="0"/>
+
+                        <t t-foreach="pemilihan_data.paslon_ids" t-as="paslon_id">
+                            <!-- <t t-if="index == 0">
+                                <div class="carousel-item active">
+                            </t>
+                            <t t-elif="index == 1">
+                                <div class="carousel-item active">
+                            </t>
+                            <t t-elif="index == 2">
+                                <div class="carousel-item active">
+                            </t>
+                            <t t-else="">
+                                <div class="carousel-item">
+                            </t> -->
+                            
+                            <div t-attf-class="carousel-item #{ 'active' if index &lt;3 else '' }">
+                                <!-- <div class="item active"> -->
+                                <div t-attf-class="item #{ 'active' if index &lt;3 else '' }">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="card text-center">
+                                                <div class="candidates-img">
+                                                    <img t-attf-src="data:image/jpg;base64,{{ paslon_id.gambar_paslon }}" width="30%"/>
+                                                </div>
+                                                <h3><b><t t-esc="paslon_id.name"/></b></h3>
+                                                <h4><b>10.21%</b></h4>
+                                                <h4><b><i class="fa-solid fa-user"></i> 540</b></h4> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <t t-set="index" t-value="index + 1"/>
+                        </t>
+                    </div>
+
+                    <button class="carousel-control-prev" type="button" t-attf-data-bs-target="#calbup#{pemilihan_data.id}" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" t-attf-data-bs-target="#calbup#{pemilihan_data.id}" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </t>

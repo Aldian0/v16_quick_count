@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+
+    <t t-inherit="web.FormStatusIndicator" t-inherit-mode="extension" owl="1">
+        <!-- <xpath expr="//button[hasclass('o_form_button_save')]" position="replace">
+            <button
+                type="button"
+                class="o_form_button_save btn btn-light py-0"
+                t-att-disabled="props.isDisabled"
+                data-hotkey="s"
+                t-on-click.stop="save"
+                data-tooltip="Save manually"
+                aria-label="Save manually">
+                <i class="fa fa-save fa-fw" />
+            </button>
+        </xpath> -->
+        <xpath expr="//button[hasclass('o_form_button_save')]/i" position="attributes">
+            <attribute name="class" remove="fa-cloud-upload" add="fa-save" separator=" "/>
+        </xpath>
+    </t>
+
+</templates>
+

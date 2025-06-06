@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+        <record id="ds_calon_view_tree" model="ir.ui.view">
+            <field name="name">ds.calon.view.tree</field>
+            <field name="model">ds.calon</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="partai_id"/>
+                    <field name="name"/>
+                    <field name="mobile"/>
+                    <field name="jenis_kel"/>
+                </tree>
+            </field>
+        </record>
+        <record id="ds_calon_view_form" model="ir.ui.view">
+            <field name="name">ds.calon.view.form</field>
+            <field name="model">ds.calon</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    
+                    <sheet>
+
+                        <field name="active" invisible="1"/>
+                        <field name="image_1920" widget="image" class="oe_avatar"/>
+                        <!-- <field name="is_kordinator_lapangan" invisible="1"/>
+                        <field name="is_calon" invisible="1"/> -->
+
+                        <div class="oe_title">
+                            <h1>
+                                <field id="individual" widget="text" class="text-break" name="name" default_focus="1" placeholder="e.g. Brandom Freeman"/>
+                            </h1>
+                        </div>
+                        <group name="detail" string="Detail">
+                            <group>
+                                <field name="agama"/>
+                                <field name="jenis_kel"/>
+                                <field name="partai_id"/>
+                                <field name="paslon_id"/>
+                            </group>
+                        </group>
+                        <!-- <notebook>
+                            <page name="kordes" string="Kordes">
+                                <group>
+                                    <field name="paslon_nomor_id"/>
+                                </group>
+                            </page>
+                        </notebook> -->
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id="ds_calon_action" model="ir.actions.act_window">
+            <field name="name">Calon Pemimpin</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ds.calon</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p><p>
+                    <!-- More details about what a user can do with this object will be OK --> 
+                
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="ds_calon_menu_act" name="Calon" parent="ds_data_calon_menu_categ" action="ds_calon_action" sequence="100"/>
+    
+    </data>
+    
+
+</odoo>

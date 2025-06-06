@@ -1,0 +1,27 @@
+/* Theme color and top-curved-border tabs */
+.o_notebook {
+    .o_notebook_headers {
+        border-bottom: 5px solid lighten($o-community-color, 5%);
+    }
+    
+    .nav-tabs {
+        border-bottom: none;
+        .nav-link {
+            border-radius: 100% 100% 0% 0% / 50% 50% 0% 0%;
+            border: none;
+            padding-top: 10px;
+            margin-bottom: -1px;
+            &.active {
+                color: white;
+                background-color: lighten($o-community-color, 5%);
+                
+                &, &:hover, &:focus, &:active {
+                    border-bottom-color: lighten($o-community-color, 5%);
+                }
+            }
+        
+        }
+        
+
+    }
+}

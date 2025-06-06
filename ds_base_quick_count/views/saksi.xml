@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+        <record id="ds_saksi_view_tree" model="ir.ui.view">
+            <field name="name">ds.saksi.view.tree</field>
+            <field name="model">ds.saksi</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="nomor" placeholder="AUTO"/>
+                    <field name="name"/>
+                    <field name="email"/>
+                    <field name="phone"/>
+                    <field name="jenis_kel"/>
+                </tree>
+            </field>
+        </record>
+        <record id="ds_saksi_view_form" model="ir.ui.view">
+            <field name="name">ds.saksi.view.form</field>
+            <field name="model">ds.saksi</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <header>
+                        <!-- <button name="login_portal" 
+                            string=" Konfirmasi" 
+                            type="object" 
+                            class="btn-primary fa fa-check" 
+                            attrs="{'invisible': [('state', '==', 'terdaftar')]}"/> -->
+
+                        <button name="create_login_saksi" 
+                            string="Buat Akun" 
+                            type="object" 
+                            class="btn-primary fa fa-check" 
+                            attrs="{'invisible': [('state', '==', 'terdaftar')]}"/>
+                        
+                        <field name="state" widget="statusbar" nolabel="1" statusbar_visible="terdaftar,tidak_terdaftar"/>
+                    </header>
+                    
+                    <sheet>
+                        <field name="image_1920" widget="image" class="oe_avatar"/>
+                        <div class="oe_title">
+                            <h1>
+                                <field id="individual" widget="text" class="text-break" name="nomor" readonly="1" placeholder="AUTO"/>
+                            </h1>
+                        </div>
+                        <group name="detail" string="Detail">
+                            <group>
+                                <field name="name"/>
+                                <field name="nik" required="1"/>
+                                <field name="email"/>
+                                <field name="jenis_kel"/>
+                                <field name="agama"/>
+                            </group>
+                            <group>
+                                <field name="phone" widget="phone"/>
+                                <field name="koordinator_id"/>
+                                <field name="tps_id"/>
+                                <field name="user_id"/>
+                            </group>
+                        </group>
+                        <group name="wilayah" string="Wilayah">
+                            <group>
+                                <field name="propinsi_id"/>
+                                <field name="kota_id" domain="[('propinsi_id','=',propinsi_id)]"/>
+                            </group>
+                            <group>
+                                <field name="kecamatan_id" domain="[('kota_id','=',kota_id)]"/>
+                                <field name="desa_id" domain="[('kecamatan_id','=',kecamatan_id)]"/>
+                                <field name="street"/>
+                            </group>
+                        </group>
+                    <notebook>
+                        <page name="form" string="Hitung Cepat">
+                            <field name="hitung_cepat_ids" readonly="1">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="tps_id"/>
+                                    <field name="pemilihan_id"/>
+                                    <field name="state"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id="ds_saksi_action" model="ir.actions.act_window">
+            <field name="name">Saksi Partai</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ds.saksi</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p><p>
+                    <!-- More details about what a user can do with this object will be OK --> 
+                
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="ds_saksi_menu_act" name="Saksi" parent="ds_Kader_menu_categ" action="ds_saksi_action" sequence="0"/>
+    
+    </data>
+    
+
+</odoo>

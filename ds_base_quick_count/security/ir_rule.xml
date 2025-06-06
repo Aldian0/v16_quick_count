@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+    <!-- RULE FOR KOORDINATOR MODEL -->
+        <!-- KOORDINATOR ACCESS -->
+        <record id="koordinator_rule_koodinator" model="ir.rule">
+            <field name="name">Rule Model Koordinator for Koordinator Access</field>
+            <field name="model_id" ref="ds_base_quick_count.model_ds_koordinator"/>
+            <field name="groups" eval="[(4, ref('ds_base_quick_count.group_quick_count_opr'))]"/>
+            <field name="domain_force">[('user_id', '=', user.id)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <!-- ADMIN ACESSS -->
+        <record id="koordinator_rule_admin" model="ir.rule">
+            <field name="name">Rule Model Koordinator for Admin Access </field>
+            <field name="model_id" ref="ds_base_quick_count.model_ds_koordinator"/>
+            <field name="groups" eval="[(4, ref('ds_base_quick_count.group_quick_count_admin'))]"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+
+    <!-- RULE FOR SAKSI MODEL -->
+
+        <!-- SAKSI ACCESS -->
+        <record id="saksi_rule_saksi" model="ir.rule">
+            <field name="name">Rule Model Saksi for Saksi Access</field>
+            <field name="model_id" ref="ds_base_quick_count.model_ds_saksi"/>
+            <field name="groups" eval="[(4, ref('ds_base_quick_count.group_quick_count_user'))]"/>
+            <field name="domain_force">[('user_id', '=', user.id)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <!-- KORDINATOR ACCESS -->
+        <record id="saksi_rule_koodinator" model="ir.rule">
+            <field name="name">Rule Model Saksi for Koordinator Access</field>
+            <field name="model_id" ref="ds_base_quick_count.model_ds_saksi"/>
+            <field name="groups" eval="[(4, ref('ds_base_quick_count.group_quick_count_opr'))]"/>
+            <field name="domain_force">[('koordinator_id.user_id', '=', user.id)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <!-- ADMIN ACESSS -->
+        <record id="saksi_rule_admin" model="ir.rule">
+            <field name="name">Rule Model Saksifor Admin Access </field>
+            <field name="model_id" ref="ds_base_quick_count.model_ds_saksi"/>
+            <field name="groups" eval="[(4, ref('ds_base_quick_count.group_quick_count_admin'))]"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+
+        <!-- RULE FOR HITUNG CEPAT MODEL -->
+
+        <!-- SAKSI ACCESS -->
+        <record id="hitung_cepat_rule_saksi" model="ir.rule">
+            <field name="name">Rule Model Hitung Cepat for Saksi Access</field>
+            <field name="model_id" ref="ds_base_quick_count.model_ds_hitung_cepat"/>
+            <field name="groups" eval="[(4, ref('ds_base_quick_count.group_quick_count_user'))]"/>
+            <field name="domain_force">[('saksi_id.user_id', '=', user.id)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <!-- KORDINATOR ACCESS -->
+        <record id="hitung_cepat_rule_koodinator" model="ir.rule">
+            <field name="name">Rule Model Hitung Cepat for Koordinator Access</field>
+            <field name="model_id" ref="ds_base_quick_count.model_ds_hitung_cepat"/>
+            <field name="groups" eval="[(4, ref('ds_base_quick_count.group_quick_count_opr'))]"/>
+            <field name="domain_force">[('koordinator_id.user_id', '=', user.id)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <!-- ADMIN ACESSS -->
+        <record id="hitung_cepat_rule_admin" model="ir.rule">
+            <field name="name">Rule Model Hitung Cepat for Admin Access </field>
+            <field name="model_id" ref="ds_base_quick_count.model_ds_hitung_cepat"/>
+            <field name="groups" eval="[(4, ref('ds_base_quick_count.group_quick_count_admin'))]"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+
+
+
+
+        
+
+
+
+
+
+
+    
+    </data>
+    
+
+</odoo>

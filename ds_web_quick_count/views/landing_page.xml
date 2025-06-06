@@ -1,0 +1,139 @@
+<odoo>
+    <template id="landing_page" name="Landing Page">
+        <t t-call="website.layout">
+            <style>
+                .hero-section {
+                    background-image: url('/ds_web_quick_count/static/src/img/Mask_Group.jpg'); /* Add your image link */
+                    background-size: cover;
+                    background-position: center;    
+                    height: 500px;
+                    position: relative;
+                }
+
+                circle-progress {
+                    stroke-width: 6px;
+                    font-size: 50px;
+                    stroke-dasharray: 3 3;
+                    stroke-dashoffset: 1.6;
+                }
+
+                .hero-section .overlay {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(255, 255, 255, 0.7);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    
+                }
+
+                .hero-text {
+                    text-align: center;
+                }
+
+                .hero-text h1 {
+                    font-size: 2.5rem;
+                    font-weight: bold;
+                }
+
+                .hero-text p {
+                    font-size: 1.1rem;
+                }
+
+                .candidates-section {
+                    text-align: center;
+                    margin: 50px 0;
+                }
+
+                .candidates-img img {
+                    height: 150px;
+                }
+
+                .card {
+                    background-color: #f1f1f1;
+                    border-radius: 10px;
+                    padding: 20px;
+                    margin: 10px;
+                }
+
+                .map {
+                    max-width: 100%;
+                    margin-bottom: 30px;
+                }
+            </style>
+            <!-- Hero Section -->
+            <div class="hero-section">
+                <div class="overlay">
+                    <div class="hero-text">
+                        <h1>Hitung Cepat Pilkada 2024</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Section -->
+            <div class="container candidates-section">
+                <h2>HASIL HITUNG CEPAT REAL COUNT</h2>
+                <p>Pemilihan Kepala Daerah (Bupati dan Wakil Bupati)</p>
+                
+                <img src="/ds_web_quick_count/static/src/img/mapindo.png" alt="Map" class="map"/> <!-- Add your map image here -->
+
+                <div class="row">
+                    <!-- Candidate 1 -->
+                    <div class="col-md-4">
+                        <div class="card text-center">
+                            <div class="candidates-img">
+                                <img src="/ds_web_quick_count/static/src/img/paslonn.png" alt="Pasangan 1"/> <!-- Candidate 1 image -->
+                            </div>
+                            <h5>PDIP PERJUANGAN</h5>
+                            <p>VERI - HENDRIK</p>
+                            <div class=" mb-2">
+                                <!-- <div class="progress-bar bg-danger" role="progressbar" style="width: 10%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div> -->
+                            <circle-progress value="10" format="percent" max="100"></circle-progress>
+                            </div>
+                            <p>Jumlah Suara: 128</p>
+                        </div>
+                    </div>
+
+                    <!-- Candidate 2 -->
+                    <div class="col-md-4">
+                        <div class="card text-center">
+                            <div class="candidates-img">
+                                <img src="/ds_web_quick_count/static/src/img/paslonn.png" alt="Pasangan 2"/> <!-- Candidate 2 image -->
+                            </div>
+                            <h5>GOLKAR</h5>
+                            <p>ALDI - BIMA</p>
+                            <div class=" mb-2">
+                                <!-- <div class="progress-bar bg-warning" role="progressbar" style="width: 35%;" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div> -->
+                            <circle-progress value="35" format="percent" max="100"></circle-progress>
+                            </div>
+                            <p>Jumlah Suara: 540</p>
+                        </div>
+                    </div>
+
+                    <!-- Candidate 3 -->
+                    <div class="col-md-4">
+                        <div class="card text-center">
+                            <div class="candidates-img">
+                                <img src="/ds_web_quick_count/static/src/img/paslonn.png" alt="Pasangan 3"/> <!-- Candidate 3 image -->
+                            </div>
+                            <h5>NASDEM</h5>
+                            <p>ANDI - RIZKY</p>
+                            <div class=" mb-2">
+                                <!-- <div class="progress-bar bg-primary" role="progressbar" style="width: 55%;" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div> -->
+                            <circle-progress value="55" format="percent" max="100"></circle-progress>
+                            </div>
+                            <p>Jumlah Suara: 850</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script src="https://cdn.jsdelivr.net/npm/js-circle-progress/dist/circle-progress.min.js" type="module"></script>
+
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,35 @@
+// ------- List renderer -------
+.o_list_renderer {
+
+    
+    .o_list_table {
+        thead {
+            th:not(.o_list_record_selector) {
+                border-left: transparent;  //remove border of header
+            }
+        }
+        tbody {
+            .o_list_record_selector,
+            .o_data_cell {
+                .form-check-input {
+                    margin-top: 2px;  //adjust for big checkbox
+                }
+            }
+        }
+    }
+
+
+    // Todo: selected /active  row background ...
+    
+    // 1. we set the global separator (gray line) of the table on the row (bottom) and not on the cell (bottom)
+    .o_data_row {
+        &:not(.o_selected_row):not(.o_data_row_selected):focus-within > * {
+            // $-focus-bg: mix($table-color, $table-active-bg, percentage($table-hover-bg-factor + 0.1));
+
+            // --#{$variable-prefix}table-accent-bg: #{$-focus-bg};
+            
+        }
+    }
+
+
+}

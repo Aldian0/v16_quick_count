@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+    
+        <!-- res.company inherit form view -->
+        <record id="res_company" model="ir.ui.view">
+            <field name="name">res.company.inherit.view.form</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+                <!-- Add your xpath here -->
+
+                <xpath expr="//notebook" position="inside">
+                    <page name="web_profile" string="Web Profile">
+                        <group>
+                            <field name="title"/>
+                            <field name="company_deskription"/>
+                        </group>
+                        
+                        <field name="website_profile_image" widget="image" options="{'size': [150, 150]}"/>
+                    </page>
+                </xpath>
+                
+            </field>
+        </record>
+    
+    </data>
+    
+</odoo>

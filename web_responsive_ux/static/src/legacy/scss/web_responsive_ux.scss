@@ -1,0 +1,43 @@
+// override web_responsive, not that big checkboxes...
+.o_list_view,
+.o_setting_container .o_setting_box {
+    .o_setting_right_pane {
+        margin-left: 30px;
+    }
+    .o-checkbox:not(.o_boolean_toggle) {
+        margin-top: unset;
+        .form-check-input {
+            width: 18px;
+            height: 18px;
+        }
+        
+        .form-check-label {
+            &::after {
+                width: 18px;
+                height: 18px;
+            }
+            &::before {
+                width: 18px;
+                height: 18px;
+            }
+        }
+        
+    }
+}
+
+.o_list_view .o_control_panel .form-check-input {
+    height: 1.15em !important;
+    width: 1.15em !important;
+}
+
+.o-dropdown button.dropdown-toggle.dropdown-item::before {
+    right: auto;
+    transform: translate(-1.5em, 90%)
+}
+
+
+// long arrow separator https://www.compart.com/en/unicode/U+27F6
+i.o_TrackingValue_separator:before {
+    content: "⟶" !important;
+    margin-right: 0.5rem !important;
+}

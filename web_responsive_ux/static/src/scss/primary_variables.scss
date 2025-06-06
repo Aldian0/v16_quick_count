@@ -1,0 +1,9 @@
+
+$o-community-color: rebeccapurple !default;
+$o-brand-primary: #c71585;
+$o-form-lightsecondary: #62B0FF !default;
+
+// $o-brand-odoo: $o-community-color;
+
+// CE default is 33px, which is not divisible by 2, causing status arrow not vertically centered
+$o-statusbar-height: 36px !default;

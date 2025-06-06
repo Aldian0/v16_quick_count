@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+    
+        <record id="seq_quick_count" model="ir.sequence">
+            <field name="name">Kode Perhitungan</field>
+            <field name="code">ds.perhitungan</field>
+            <field name="prefix">HIT</field>
+            <field name="padding">5</field>
+        </record>   
+
+        <record id="seq_saksi" model="ir.sequence">
+            <field name="name">Kode Saksi</field>
+            <field name="code">ds.saksi</field>
+            <field name="prefix">SAK</field>
+            <field name="padding">5</field>
+        </record> 
+        <record id="seq_kordes" model="ir.sequence">
+            <field name="name">Kode Kordes</field>
+            <field name="code">ds.koordinator</field>
+            <field name="prefix">KOR</field>
+            <field name="padding">5</field>
+        </record> 
+    
+    </data>
+    
+
+</odoo>

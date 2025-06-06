@@ -1,0 +1,81 @@
+<odoo>
+    <template id="pengisian_page" name="Landing Page">
+        <t t-call="website.layout">
+            <style>
+                body {
+                    background-color: #f8f9fa;
+                }
+                .form-container {
+                    /* max-width: 400px; */
+                    width: auto;
+                    margin: 20px auto;
+                    padding: 20px;
+                    margin-left: 4%;
+                    margin-right: 4%;
+                    background-color: #fff;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                }
+                .head {
+                    width: auto;
+                    /* margin: 2% auto; */
+                    margin: 20px auto;
+                    margin-left: 4%;
+                    margin-right: 4%;
+                    padding: 20px;
+                    background-color: #fff;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                }
+                .btn-custom {
+                    width: 100%;
+                    margin-top: 20px;
+                    max-width: 400px;
+                    margin: 0 auto;
+                }
+                .mb-5 {
+                    max-width: 400px;
+                    margin: 0 auto;
+                    
+                }
+            </style>
+            <div class="head container-fluid" >
+                <img src="/ds_web_quick_count/static/src/img/pilkada27.jpg" alt="logo Pilkada" style="width: auto;" class="img-fluid"/>
+            </div>
+            <div class="form-container">
+                <h3 class="text-center mb-4"><b>Pengisian Hitung Cepat Saksi</b></h3>
+
+                <form>
+                    <div class="mb-5 input-group-lg ">
+                        <label for="saksi" class="form-label">Saksi</label>
+                        <input type="text" class="form-control" id="saksi" placeholder="Masukkan nama saksi"/>
+                    </div>
+
+                    <div class="mb-5 input-group-lg ">
+                        <label for="koordinator" class="form-label">Koordinator</label>
+                        <input type="text" class="form-control" id="koordinator" placeholder="Masukkan nama koordinator"/>
+                    </div>
+
+                    <div class="mb-5 input-group-lg ">
+                        <label for="tps" class="form-label">TPS</label>
+                        <select class="form-select" id="tps">
+                            <option selected="selected" >Sri Lanka</option>
+                            <!-- Add options as needed -->
+                        </select>
+                    </div>
+
+                    <div class="mb-5 input-group-lg ">
+                        <label for="pemilihan" class="form-label">Pemilihan</label>
+                        <select class="form-select" id="pemilihan">
+                            <option selected="selected">Western Province</option>
+                            <!-- Add options as needed -->
+                        </select>
+                    </div>
+                    <div class="text-center mb-5">
+                        <button type="submit" class="btn btn-outline-danger btn-custom">OK</button>
+                    </div>
+                </form>
+            </div>
+        </t>
+    </template>
+</odoo>

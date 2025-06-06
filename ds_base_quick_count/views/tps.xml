@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <record id="ds_tps_view_tree" model="ir.ui.view">
+            <field name="name">ds.tps.view.tree</field>
+            <field name="model">ds.tps</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="nomor_tps"/>
+                    <field name="name"/>
+                    <field name="propinsi_id"/>
+                    <field name="kota_id" domain="[('propinsi_id','=',propinsi_id)]"/>
+                    <field name="kecamatan_id" domain="[('kota_id','=',kota_id)]"/>
+                    <field name="desa_id" domain="[('kecamatan_id','=',kecamatan_id)]"/>
+                </tree>
+            </field>
+        </record>
+        <record id="ds_tps_view_form" model="ir.ui.view">
+            <field name="name">ds.tps.view.form</field>
+            <field name="model">ds.tps</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field id="individual" options="{'line_breaks': False}" widget="text" class="text-break" name="name" default_focus="1" placeholder="TPS 4"/>
+                            </h1>
+                        </div>
+                        <group name="detail" string="Detail">
+                            <field name="nomor_tps"/>
+                        </group>
+                        <group name="wilayah" string="Wilayah">
+                            <group>
+                                <field name="propinsi_id"/>
+                                <field name="kota_id" domain="[('propinsi_id','=',propinsi_id)]"/>
+                                <field name="kecamatan_id" domain="[('kota_id','=',kota_id)]"/>
+                            </group>
+                            <group>
+                                <field name="desa_id" domain="[('kecamatan_id','=',kecamatan_id)]"/>
+                                <field name="alamat"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id="ds_tps_action" model="ir.actions.act_window">
+            <field name="name">TPS</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ds.tps</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p><p>
+                    <!-- More details about what a user can do with this object will be OK --> 
+                
+                </p>
+            </field>
+        </record>
+        <menuitem id="ds_tps_menu_act" name="TPS" parent="ds_pengaturan_menu_categ" action="ds_tps_action" sequence="11"/>
+
+    
+    </data>
+    
+</odoo>
